@@ -1,4 +1,19 @@
 <label>Username</label>
 <input type="text" [(ngModel)]='username' />
+<button
+(click) = "onCreateServer()"
+>Add Server</button>
 
-<p>{{ username }}</p>
+
+<p *ngIf="serverCreated else noServer">Server was created, and name of server is {{username}}</p>
+
+
+<ng-template #noServer>
+    <p>
+        No server was created!
+    </p>
+</ng-template>
+
+<br>
+
+<!-- <button [disabled] = "username === '' " (click) = " username = '' ">Reset User</button> -->
