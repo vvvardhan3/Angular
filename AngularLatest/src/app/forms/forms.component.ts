@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class FormsComponent {
   username = ' ';
   serverCreated = false;
+  showSecret = false;
 
   onCreateServer() {
     this.serverCreated = true;

@@ -17,3 +17,6 @@
 <br>
 
 <!-- <button [disabled] = "username === '' " (click) = " username = '' ">Reset User</button> -->
+<button (click) = "showSecret = !showSecret">Display Details</button>
+
+<p *ngIf = "showSecret" >Secret paswword = Vishnu</p>
