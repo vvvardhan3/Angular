@@ -1,1 +1,12 @@
+<h1>Welcome</h1>
+<h2>User logged in successfully</h2>
+<br />
 <p>dashboard works!</p>
+
+
+  <div>Welcome, {{ userProfile.name }}</div>
+  <img src="{{userProfile.picture}}">
+  <div>{{userProfile.email}}</div>
+  <div>{{userProfile.sub}}</div>
+
+<button id="signout-button" (click)="handleSignOut()">Sign Out</button>

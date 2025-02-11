@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+declare var handleSignout: any; // Declare the global function to avoid TypeScript errors
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
-
+export class DashboardComponent implements OnInit {
+  constructor(private router: Router) {}
+  userProfile: any;
+  ngOnInit() {
+    this.userProfile = JSON.parse(sessionStorage.getItem('loggedInUser') || '');
+  }
+  handleSignOut() {
+    handleSignout()
+    sessionStorage.removeItem('loggedInUser')
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
+  }
+  
 }
